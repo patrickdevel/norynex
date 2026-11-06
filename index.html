@@ -1,0 +1,696 @@
+<!DOCTYPE html><html lang="de"><head>
+<meta charset="utf-8">
+<script src="js/nx-events.js"></script>
+<script src="js/index-1.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Norynex – Videos, Shorts &amp; Livestreams</title>
+<link rel="manifest" href="js/manifest.json">
+<meta name="theme-color" content="#a83bff">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Norynex">
+<meta name="description" content="Norynex ist die Video-Plattform für Videos, Shorts und Livestreams. Entdecke Creator, schau Trends und lade eigene Videos hoch – kostenlos. Norynex befindet sich in der Beta-Phase.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-video-preview:-1">
+<link rel="canonical" href="https://norynex.com/">
+<!-- Open Graph -->
+<meta property="og:title" content="Norynex – Videos, Shorts &amp; Livestreams">
+<meta property="og:description" content="Norynex ist die Video-Plattform für Videos, Shorts und Livestreams. Entdecke Creator, schau Trends und lade eigene Videos hoch – kostenlos. Norynex befindet sich in der Beta-Phase.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://norynex.com/">
+<meta property="og:locale" content="de_DE">
+<meta property="og:image" content="images/norynex-logo.png">
+<meta property="og:site_name" content="Norynex">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Norynex – Videos, Shorts &amp; Livestreams">
+<meta name="twitter:description" content="Norynex ist die Video-Plattform für Videos, Shorts und Livestreams. Entdecke Creator, schau Trends und lade eigene Videos hoch – kostenlos. Norynex befindet sich in der Beta-Phase.">
+<meta name="twitter:image" content="images/norynex-logo.png">
+<!-- Structured Data -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"Norynex","url":"https://norynex.com","inLanguage":"de","description":"Die Video-Plattform für Videos, Shorts und Livestreams","potentialAction":{"@type":"SearchAction","target":"https://norynex.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Norynex","url":"https://norynex.com","logo":{"@type":"ImageObject","url":"https://norynex.com/assets/search-icon-512.png","width":512,"height":512}}
+</script>
+<link rel="icon" href="images/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="images/icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="152x152" href="images/icon-152.png">
+<link rel="apple-touch-icon" sizes="192x192" href="images/icon-192.png">
+<link rel="stylesheet" href="css/all.min.css">
+<link rel="stylesheet" href="css/fonts.css">
+<!-- Alle Stile in einer Datei: gebaut aus styles/*.css (npm run build) -->
+<link rel="stylesheet" href="css/app.css">
+<!-- Cookie Consent Banner -->
+<style>
+#cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:99999;background:rgba(18,18,28,0.97);backdrop-filter:blur(16px);border-top:1px solid rgba(168,59,255,0.3);padding:16px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;box-shadow:0 -8px 32px rgba(0,0,0,0.5);transform:translateY(100%);transition:transform 0.4s cubic-bezier(0.34,1.56,0.64,1)}
+#cookie-banner.show{transform:translateY(0)}
+#cookie-banner .cookie-text{flex:1;min-width:200px;font-size:13px;color:rgba(255,255,255,0.8);line-height:1.5}
+#cookie-banner .cookie-text a{color:var(--purple-light,#c77dff);text-decoration:underline}
+#cookie-banner .cookie-btns{display:flex;gap:10px;flex-shrink:0}
+@media(max-width:640px){#cookie-banner{padding:14px 16px calc(14px + env(safe-area-inset-bottom));gap:12px}#cookie-banner .cookie-text{min-width:0;flex-basis:100%;font-size:12.5px}#cookie-banner .cookie-btns{width:100%;flex-wrap:wrap;gap:8px}#cookie-banner .cookie-btns button{flex:1 1 0;min-width:0;padding:11px 8px;font-size:12.5px;white-space:nowrap}#cookie-banner .cookie-btn-settings{flex-basis:100%!important;order:3}}
+#cookie-banner .cookie-btn-accept{padding:10px 22px;background:linear-gradient(var(--accent),var(--accent));border:none;border-radius:50px;color:white;font-size:13px;font-weight:700;cursor:pointer;transition:opacity 0.2s}
+#cookie-banner .cookie-btn-accept:hover{opacity:0.9}
+#cookie-banner .cookie-btn-reject{padding:10px 22px;background:#fff;border:1px solid rgba(255,255,255,0.45);border-radius:50px;color:#15131f;font-size:13px;font-weight:700;cursor:pointer;transition:opacity 0.2s}
+#cookie-banner .cookie-btn-reject:hover{opacity:0.85}
+#cookie-banner .cookie-btn-settings{padding:10px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:rgba(255,255,255,0.7);font-size:13px;font-weight:600;cursor:pointer;transition:border-color 0.2s}
+#cookie-banner .cookie-btn-settings:hover{border-color:rgba(255,255,255,0.5)}
+#cookie-modal{position:fixed;inset:0;z-index:100000;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.8);backdrop-filter:blur(8px)}
+#cookie-modal .cookie-modal-box{background:#111;border:1px solid rgba(168,59,255,0.3);border-radius:20px;padding:28px;max-width:460px;width:93%;max-height:85vh;overflow-y:auto}
+.cookie-toggle-row{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.08)}
+.cookie-toggle-row:last-child{border-bottom:none}
+.cookie-toggle-label{font-weight:600;font-size:14px;color:#fff;margin-bottom:2px}
+.cookie-toggle-desc{font-size:12px;color:rgba(255,255,255,0.5);margin-top:2px}
+.cookie-switch{position:relative;display:inline-block;width:40px;height:22px;flex-shrink:0}
+.cookie-switch input{opacity:0;width:0;height:0}
+.cookie-slider{position:absolute;inset:0;border-radius:22px;background:rgba(255,255,255,0.15);transition:.3s;cursor:pointer}
+.cookie-slider:before{content:'';position:absolute;height:16px;width:16px;left:3px;bottom:3px;background:white;border-radius:50%;transition:.3s}
+.cookie-switch input:checked+.cookie-slider{background:linear-gradient(var(--accent),var(--accent))}
+.cookie-switch input:checked+.cookie-slider:before{transform:translateX(18px)}
+.cookie-switch input:disabled+.cookie-slider{opacity:0.7;cursor:not-allowed}
+</style>
+</head>
+<body>
+<!-- Sofort-Splash: rendert bereits mit dem ersten HTML-Parse (kein Warten auf app.js),
+     damit auf installierten PWAs kein "Sprung" zwischen dem nativen Android/Chrome-
+     Splash-Screen und unserem eigenen JS-Splash sichtbar ist. initSplashScreen() in
+     app.js erkennt dieses Element und übernimmt es nahtlos, statt einen zweiten
+     Splash-Screen darüber zu legen. Auf Desktop wird es sofort per JS entfernt. -->
+<div id="nxd-splash" style="position:fixed;inset:0;z-index:99999;background:#0b0b10;display:flex;flex-direction:column;align-items:center;justify-content:center">
+  <div id="nxd-splash-logo" style="opacity:0;transform:scale(0.7)">
+    <div style="position:relative;display:flex;align-items:center;justify-content:center">
+      <div id="nxd-splash-ring" style="position:absolute;width:150px;height:150px;border-radius:50%;border:3px solid transparent;border-top-color:#a83bff;border-right-color:#c77dff;opacity:0"></div>
+      <img alt="" src="images/norynex-logo.png" width="120" height="120" style="box-shadow:none;background:transparent;display:block" data-splash-logo="">
+      <div id="nxd-splash-fallback" style="display:none;width:120px;height:120px;border-radius:22px;background:linear-gradient(var(--accent),var(--accent));align-items:center;justify-content:center;font-size:44px;font-weight:900;color:white;box-shadow:0 8px 40px rgba(0,0,0,0.25)">N</div>
+    </div>
+  </div>
+  <div id="nxd-splash-text" style="margin-top:24px;opacity:0;transform:translateY(16px)">
+    <div style="font-size:28px;font-weight:800;color:white;text-align:center;letter-spacing:-0.5px">Norynex</div>
+    <div style="font-size:13px;color:rgba(255,255,255,0.4);text-align:center;margin-top:4px;letter-spacing:2px;text-transform:uppercase">Stream · Entdecken · Teilen</div>
+  </div>
+  <div id="nxd-splash-dots" style="position:absolute;bottom:48px;opacity:0">
+    <div style="display:flex;gap:8px">
+      <div style="width:6px;height:6px;border-radius:50%;background:#a83bff"></div>
+      <div style="width:6px;height:6px;border-radius:50%;background:#c77dff"></div>
+      <div style="width:6px;height:6px;border-radius:50%;background:#c084fc"></div>
+    </div>
+  </div>
+</div>
+<!-- Browser autofill honeypot – must be first in DOM -->
+<div style="display:none;position:absolute;left:-9999px;top:-9999px" aria-hidden="true">
+  <input type="text" name="username" tabindex="-1" autocomplete="username">
+  <input type="email" name="email" tabindex="-1" autocomplete="email">
+  <input type="password" name="password" tabindex="-1" autocomplete="new-password">
+</div>
+<div id="app">
+  <header id="main-header">
+    <div class="header-left">
+      <button class="hamburger" id="sidebar-toggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
+      <a href="#" class="logo-link" data-page="home">
+        <img src="images/logo.png" alt="Norynex" class="logo-img">
+        <span class="logo-text">Norynex</span>
+      </a>
+    </div>
+    <div class="header-center">
+      <div class="search-bar-wrapper">
+        <div class="search-bar">
+          <input type="text" id="search-input" data-i18n-placeholder="search_placeholder" placeholder="Suche..." autocomplete="new-password" autocorrect="off" autocapitalize="off" spellcheck="false">
+          <button id="search-btn" aria-label="Suchen"><i class="fas fa-search"></i></button>
+          <button id="voice-search-btn" data-i18n-title="voice_search_tooltip" title="Sprachsuche" aria-label="Sprachsuche"><i class="fas fa-microphone"></i></button>
+        </div>
+        <div id="search-history-dropdown" class="search-history-dropdown" style="display:none"></div>
+      </div>
+    </div>
+    <div class="header-right">
+      <!-- Mobile: Lupe statt Suchleiste -->
+      <button id="mobile-search-btn" class="icon-btn" data-action="openMobileSearch" aria-label="Suche" style="display:none"><i class="fas fa-search"></i></button>
+      <button class="icon-btn" id="upload-btn-header" data-i18n-title="upload_tooltip" title="Hochladen" aria-label="Hochladen"><i class="fas fa-video"></i></button>
+      <button class="icon-btn" id="notifications-btn" data-i18n-title="notifications_tooltip" title="Benachrichtigungen"><i class="fas fa-bell"></i><span class="notif-badge" id="notif-count" style="display:none">0</span></button>
+      <div id="auth-section"></div>
+    </div>
+  </header>
+  <aside id="sidebar" class="sidebar">
+    <nav class="sidebar-nav">
+      <div class="sidebar-nav-group" data-i18n="nav_groups_main">Start</div>
+      <a href="/" class="nav-item active" data-page="home"><i class="fas fa-home"></i><span data-i18n="nav_home">Startseite</span></a>
+      <a href="/shorts" class="nav-item" data-page="shorts"><i class="fas fa-film"></i><span data-i18n="nav_shorts">Shorts</span></a>
+      <a href="/subscriptions" rel="nofollow" class="nav-item" data-page="subscriptions"><i class="fas fa-play-circle"></i><span data-i18n="nav_subscriptions">Abonnements</span></a>
+      <a href="/live" class="nav-item" data-page="live"><i class="fas fa-broadcast-tower"></i><span data-i18n="nav_live">Livestreams</span></a>
+      <div class="sidebar-nav-group" data-i18n="nav_groups_discover">Entdecken</div>
+      <a href="/trending" class="nav-item" data-page="trending"><i class="fas fa-fire"></i><span data-i18n="nav_trending">Trending</span></a>
+      <a href="/gaming" class="nav-item" data-page="gaming"><i class="fas fa-gamepad"></i><span data-i18n="nav_gaming">Gaming</span></a>
+      <a href="/music" class="nav-item" data-page="music"><i class="fas fa-music"></i><span data-i18n="nav_music">Musik</span></a>
+      <a href="/sports" class="nav-item" data-page="sports"><i class="fas fa-football-ball"></i><span data-i18n="nav_sports">Sport</span></a>
+      <a href="/comedy" class="nav-item" data-page="comedy"><i class="fas fa-laugh"></i><span data-i18n="nav_comedy">Comedy</span></a>
+      <div class="sidebar-nav-group" data-i18n="nav_groups_you">Meine Inhalte</div>
+      <a href="/history" rel="nofollow" class="nav-item" data-page="history"><i class="fas fa-history"></i><span data-i18n="nav_history">Verlauf</span></a>
+      <a href="/saved" rel="nofollow" class="nav-item" data-page="saved"><i class="fas fa-bookmark"></i><span data-i18n="nav_saved">Gespeichert</span></a>
+      <a href="/messages" rel="nofollow" class="nav-item" data-page="messages" id="messages-link" style="display:none"><i class="far fa-paper-plane"></i><span>Nachrichten</span><b class="dm-badge" hidden=""></b></a>
+      <a href="/posts" rel="nofollow" class="nav-item" data-page="posts"><i class="fas fa-images"></i><span data-i18n="nav_posts">Beiträge</span></a>
+      <a href="/tasks" rel="nofollow" class="nav-item" data-page="tasks" id="aufgaben-link"><i class="fas fa-tasks"></i><span data-i18n="nav_tasks">Aufgaben</span></a>
+      <div class="nav-divider"></div>
+      <a href="/premium" rel="nofollow" class="nav-item premium-item" data-page="premium"><i class="fas fa-crown"></i><span data-i18n="nav_premium">Premium</span></a>
+      <a href="/shop" rel="nofollow" class="nav-item" data-page="shop" id="shop-link"><i class="fas fa-store"></i><span data-i18n="nav_shop">Shop</span></a>
+      <a href="/bugs" class="nav-item nx-nav-bugs" data-page="bugs" id="bugs-link"><i class="fas fa-bug"></i><span>Bugs</span><b class="nx-nav-beta">BETA</b></a>
+      <a href="/studio/videos" rel="nofollow" class="nav-item" data-page="studio" id="studio-link" style="display:none" data-action="nxSetHash" data-args="[" #studio="" videos"]"=""><i class="fas fa-tools"></i><span data-i18n="nav_studio">Creator Studio</span></a>
+      <a href="/settings" rel="nofollow" class="nav-item" data-page="settings" id="settings-link"><i class="fas fa-cog"></i><span data-i18n="nav_settings">Einstellungen</span></a>
+      <a href="/nexa" rel="nofollow" class="nav-item" data-page="nexa" id="nexa-link"><i class="fas fa-wand-magic-sparkles"></i><span>Nexa AI</span></a>
+      <a href="/admin" rel="nofollow" class="nav-item" data-page="admin" id="admin-sidebar-link" style="display:none;color:#ef4444"><i class="fas fa-shield-alt" style="color:#ef4444"></i><span>Admin Panel</span></a>
+    </nav>
+    <div class="sidebar-footer">
+      <p class="footer-copy">© <span class="nx-year">2026</span> Norynex</p>
+      <p class="footer-email"><a href="mailto:support@norynex.com" data-action="closeMobileSidebar">support@norynex.com</a></p>
+      <nav class="footer-legal">
+        <a href="/agb" target="_blank" data-action="closeMobileSidebar"><i class="fas fa-file-contract"></i><span data-i18n="footer_agb">AGB</span></a>
+        <a href="/datenschutz" target="_blank" data-action="closeMobileSidebar"><i class="fas fa-shield-alt"></i><span data-i18n="footer_privacy">Datenschutz</span></a>
+        <a href="/impressum" target="_blank" data-action="closeMobileSidebar"><i class="fas fa-landmark"></i><span data-i18n="footer_imprint">Impressum</span></a>
+      </nav>
+      <a href="https://discord.gg/sTTP4SuwAC" target="_blank" rel="noopener" class="footer-discord" data-action="closeMobileSidebar">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.015.043.033.056a19.917 19.917 0 0 0 5.993 3.03.077.077 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"></path></svg>
+        <span data-i18n="footer_discord">Discord Support</span>
+      </a>
+    </div>
+  </aside>
+  <div id="sidebar-backdrop" data-action="toggleSidebar"></div>
+  <main id="main-content"><div id="nx-ssr" class="nx-ssr"><h1>Norynex – Videos, Shorts &amp; Livestreams</h1><p>Norynex ist die Video-Plattform für Videos, Shorts und Livestreams. Entdecke Creator, schau Trends und lade eigene Videos hoch – kostenlos. Norynex befindet sich in der Beta-Phase.</p><nav class="nx-ssr-nav" aria-label="Kategorien"><a href="/">Startseite</a> · <a href="/shorts">Shorts</a> · <a href="/live">Livestreams</a> · <a href="/trending">Trending</a> · <a href="/gaming">Gaming</a> · <a href="/music">Musik</a> · <a href="/sports">Sport</a> · <a href="/comedy">Comedy</a></nav><h2>Neue Videos</h2><ul class="nx-ssr-list"><li><a href="/watch/9a9444be-130b-43d7-8be8-bc6727760a0a"><img src="images/64476a0c-8167-41b3-a685-3dc6bcfa673f.webp" alt="Roblox Edit" width="160" height="90" loading="lazy"><span>Roblox Edit</span></a> <small>von <a href="/channel/Paul">Paulus331</a></small></li><li><a href="/watch/822f93d1-f430-4939-bed9-cec23e817957"><img src="images/b2de28eb-0aba-43d3-94e6-899a5e49d769.webp" alt="bewerten" width="160" height="90" loading="lazy"><span>bewerten</span></a> <small>von <a href="/channel/jannes">jannes2026</a></small></li><li><a href="/watch/6af8cc51-8721-46b1-ae68-4ed4532e3562"><img src="images/da838f47-dcbb-421e-b013-ddc29b51bb0b.webp" alt="BANGER (WIZOX BAN HIS GUY)" width="160" height="90" loading="lazy"><span>BANGER (WIZOX BAN HIS GUY)</span></a> <small>von <a href="/channel/randomshi">RandomShi</a></small></li></ul><h2>Neue Shorts</h2><ul class="nx-ssr-list"><li><a href="/shorts/f322654c-160b-4ba4-a283-6dddf9a94b7a"><img src="images/0154b487-d8f0-4bda-89e4-c771d6128161.webp" alt="How to drift" width="160" height="90" loading="lazy"><span>How to drift</span></a> <small>von <a href="/channel/Paul">Paulus331</a></small></li><li><a href="/shorts/d63b0919-064a-4114-a8d3-a578869b72d1"><img src="images/6c903cc2-2d93-46f0-bc32-016442b0f0d8.webp" alt="Nur 0.01% Finden Mich.. FORTNITE HIDE &amp; SEEK!🫣#fortnite" width="160" height="90" loading="lazy"><span>Nur 0.01% Finden Mich.. FORTNITE HIDE &amp; SEEK!🫣#fortnite</span></a> <small>von <a href="/channel/Fortendo">Fortendo</a></small></li><li><a href="/shorts/458bd427-4cb3-4e98-96c2-4a3786f532fe"><img src="images/e2561192-1fcd-4e3d-bedd-55ac21e2486b.webp" alt="Lasst ein follow da (:" width="160" height="90" loading="lazy"><span>Lasst ein follow da (:</span></a> <small>von <a href="/channel/MailooxD">MailooxD</a></small></li><li><a href="/shorts/a4d9e7e7-ae7c-482a-a7d9-7214953ba262"><img src="images/4a0aff4d-743e-491f-8679-0552b09aef7d.webp" alt="ICH ZEIGE mich das ERSTE MAL😱(Part 1)" width="160" height="90" loading="lazy"><span>ICH ZEIGE mich das ERSTE MAL😱(Part 1)</span></a> <small>von <a href="/channel/Fortendo">Fortendo</a></small></li></ul></div>
+    <div id="page-home" class="page active"></div>
+    <div id="page-shorts" class="page" style="display:none"></div>
+    <div id="page-subscriptions" class="page" style="display:none"></div>
+    <div id="page-live" class="page" style="display:none"></div>
+    <div id="page-trending" class="page" style="display:none"></div>
+    <div id="page-gaming" class="page" style="display:none"></div>
+    <div id="page-music" class="page" style="display:none"></div>
+    <div id="page-sports" class="page" style="display:none"></div>
+    <div id="page-comedy" class="page" style="display:none"></div>
+    <div id="page-history" class="page" style="display:none"></div>
+    <div id="page-saved" class="page" style="display:none"></div>
+    <div id="page-posts" class="page" style="display:none"></div>
+    <div id="page-balance" class="page" style="display:none"></div>
+    <div id="page-premium" class="page" style="display:none"></div>
+    <div id="page-studio" class="page" style="display:none"></div>
+    <div id="page-settings" class="page" style="display:none"></div>
+    <div id="page-hashtag" class="page" style="display:none"></div>
+    <div id="page-messages" class="page" style="display:none"></div>
+    <div id="page-playlist" class="page" style="display:none"></div>
+    <div id="page-playlists" class="page" style="display:none"></div>
+    <div id="page-channel" class="page" style="display:none"></div>
+    <div id="page-search" class="page" style="display:none"></div>
+    <div id="page-watch" class="page" style="display:none"></div>
+    <div id="page-stream" class="page" style="display:none"></div>
+    <div id="page-nexa" class="page" style="display:none"></div>
+    <div id="page-vod" class="page" style="display:none"></div>
+    <div id="page-shop" class="page" style="display:none"></div>
+    <div id="page-tasks" class="page" style="display:none"></div>
+    <div id="page-bugs" class="page" style="display:none"></div>
+  </main>
+</div>
+<!-- MODALS -->
+<div id="auth-modal" class="modal" style="display:none">
+  <div class="modal-overlay" data-action="closeModal" data-args="[" auth-modal"]"=""></div>
+  <div class="modal-box">
+    <button class="modal-close" data-action="closeModal" data-args="[" auth-modal"]"="" aria-label="Schließen"><i class="fas fa-times"></i></button>
+    <div class="auth-hero">
+      <div class="auth-hero-logo"><img src="images/norynex-logo.png" alt="Norynex"></div>
+      <h2 id="auth-hero-title" data-i18n="tab_login">Anmelden</h2>
+      <p id="auth-hero-sub" data-i18n="auth_hero_sub_login">Schön, dich wiederzusehen</p>
+    </div>
+    <div id="auth-tabs" class="auth-tabs-v2" data-active="login">
+      <button class="auth-tab-v2 active" data-tab="login" data-i18n="tab_login">Anmelden</button>
+      <button class="auth-tab-v2" data-tab="register" data-i18n="tab_register">Registrieren</button>
+      <div class="auth-tab-indicator"></div>
+    </div>
+    <div class="auth-body-v2">
+      <div id="login-form" class="auth-form">
+        <div class="form-group"><label data-i18n="label_email_or_username">E-Mail oder Benutzername</label><input type="text" id="login-email" placeholder="deine@email.de"></div>
+        <div class="form-group"><label data-i18n="label_password">Passwort</label><div style="position:relative"><input type="password" id="login-password" placeholder="••••••••" style="width:100%;padding-right:42px;box-sizing:border-box"><button type="button" aria-label="Passwort anzeigen" data-action="_togglePwVis" data-args="[" login-password",="" "login-pw-eye"]"="" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--text-muted);padding:0;line-height:1"><i id="login-pw-eye" class="fas fa-eye" style="font-size:15px"></i></button></div></div>
+        <div style="text-align:right;margin-top:-6px;margin-bottom:14px"><a href="#" data-action="showForgotPassword" data-prevent="" style="font-size:12px;color:var(--purple-light);font-weight:600" data-i18n="forgot_password">Passwort vergessen?</a></div>
+        <button class="btn-primary full-width" data-action="doLogin" data-i18n="btn_login_action">Anmelden</button>
+        <div class="auth-divider-v2"><div></div><span data-i18n="or_divider">oder</span><div></div></div>
+        <div id="google-signin-btn-login" style="width:100%;display:flex;justify-content:center;margin-bottom:4px"></div>
+      </div>
+      <div id="register-form" class="auth-form" style="display:none">
+        <div class="form-group"><label data-i18n="label_username">Benutzername</label><input type="text" id="reg-username" placeholder="deinname" maxlength="20" autocomplete="username" spellcheck="false"><small id="reg-username-hint" class="reg-hint"></small></div>
+        <div class="form-group"><label data-i18n="label_email">E-Mail</label><input type="email" id="reg-email" placeholder="deine@email.de"></div>
+        <div class="form-group"><label data-i18n="label_displayname">Anzeigename</label><input type="text" id="reg-displayname" placeholder="Dein Name"></div>
+        <div class="form-group"><label data-i18n="label_password">Passwort</label><div style="position:relative"><input type="password" id="reg-password" placeholder="••••••••" style="width:100%;padding-right:42px;box-sizing:border-box"><button type="button" aria-label="Passwort anzeigen" data-action="_togglePwVis" data-args="[" reg-password",="" "reg-pw-eye"]"="" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--text-muted);padding:0;line-height:1"><i id="reg-pw-eye" class="fas fa-eye" style="font-size:15px"></i></button></div></div>
+        <label class="gs-check" style="margin:2px 0 14px"><input type="checkbox" id="reg-terms"><span>Ich akzeptiere die <a href="/agb.html" target="_blank">AGB</a> und habe die <a href="/datenschutz.html" target="_blank">Datenschutzerklärung</a> gelesen.</span></label>
+        <button class="btn-primary full-width" style="margin-top:4px" data-action="doRegister" data-i18n="btn_create_account">Konto erstellen</button>
+        <div class="auth-divider-v2"><div></div><span data-i18n="or_divider">oder</span><div></div></div>
+        <div id="google-signin-btn-register" style="width:100%;display:flex;justify-content:center;margin-bottom:4px"></div>
+      </div>
+      <p id="auth-error" class="error-msg"></p>
+    </div>
+  </div>
+</div>
+<div id="upload-modal" class="modal" style="display:none">
+  <div class="modal-overlay" data-action="closeModal" data-args="[" upload-modal"]"=""></div>
+  <div class="modal-box upload-modal-box">
+    <button class="modal-close" data-action="closeModal" data-args="[" upload-modal"]"="" aria-label="Schließen"><i class="fas fa-times"></i></button>
+    <button data-action="minimizeUpload" title="Im Hintergrund fortsetzen" style="position:absolute;top:14px;right:52px;background:none;border:none;cursor:pointer;color:var(--text-muted);font-size:18px;padding:4px;line-height:1;z-index:10" class="nx-hover-strong" aria-label="Im Hintergrund fortsetzen"><i class="fas fa-window-minimize"></i></button>
+    <h2 data-i18n="upload_title">Inhalt hochladen</h2>
+    <div class="upload-type-tabs">
+      <button class="upload-tab active" data-upload="video"><i class="fas fa-video"></i> <span data-i18n="tab_video">Video</span></button>
+      <button class="upload-tab" data-upload="post"><i class="fas fa-images"></i> <span data-i18n="tab_post">Beitrag</span></button>
+    </div>
+    <div id="video-upload-form">
+      <!-- Mobile Camera / Upload Choice -->
+      <div id="mobile-record-bar" style="display:none;gap:8px;margin-bottom:12px">
+        <button data-action="switchUploadSource" data-args="[" file"]"="" id="src-file-btn" class="btn-primary" style="flex:1;padding:10px;font-size:13px;border-radius:12px">
+          <i class="fas fa-cloud-upload-alt"></i> Hochladen
+        </button>
+        <button data-action="switchUploadSource" data-args="[" camera"]"="" id="src-camera-btn" class="btn-secondary" style="flex:1;padding:10px;font-size:13px;border-radius:12px;background:var(--bg-secondary);border:1px solid var(--border);color:var(--text-primary);cursor:pointer">
+          <i class="fas fa-video"></i> Aufnehmen
+        </button>
+      </div>
+
+      <!-- File upload drop zone -->
+      <div class="drop-zone" id="video-drop-zone">
+        <i class="fas fa-cloud-upload-alt"></i>
+        <p data-i18n="drop_video">Video hier ablegen oder klicken</p>
+        <small data-i18n="drop_video_formats">MP4, MOV, AVI, WebM bis 2GB</small>
+        <input type="file" id="video-file-input" accept="video/*" style="display:none">
+      </div>
+
+      <!-- Camera Recording UI (mobile only) -->
+      <div id="camera-record-ui" style="display:none">
+        <div style="position:relative;border-radius:14px;overflow:hidden;background:#000;aspect-ratio:9/16;max-height:60vh">
+          <video id="camera-preview" autoplay="" muted="" playsinline="" style="width:100%;height:100%;object-fit:cover;transition:filter 0.3s"></video>
+          <div id="record-timer" style="display:none;position:absolute;top:12px;left:50%;transform:translateX(-50%);background:rgba(239,68,68,0.9);color:white;padding:4px 14px;border-radius:20px;font-size:14px;font-weight:700;letter-spacing:1px">
+            <i class="fas fa-circle" style="font-size:9px;animation:pulse 1s infinite"></i> 00:00
+          </div>
+          <div style="position:absolute;top:12px;right:12px;display:flex;flex-direction:column;gap:8px">
+            <button data-action="flipCamera" style="width:38px;height:38px;border-radius:50%;background:rgba(0,0,0,0.5);border:none;color:white;font-size:16px;cursor:pointer;backdrop-filter:blur(4px)" aria-label="Aktualisieren">
+              <i class="fas fa-sync-alt"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Filters -->
+        <div style="margin-top:10px">
+          <p style="font-size:12px;color:var(--text-muted);margin-bottom:8px">Filter</p>
+          <div style="display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;-webkit-overflow-scrolling:touch;scrollbar-width:none">
+            <button data-action="applyCameraFilter" data-args="[" none"]"="" class="filter-btn active" data-filter="none" style="flex-shrink:0;padding:6px 14px;border-radius:20px;border:1px solid var(--purple-main);background:var(--purple-subtle);color:var(--purple-light);font-size:12px;cursor:pointer">Normal</button>
+            <button data-action="applyCameraFilter" data-args="[" grayscale(100%)"]"="" class="filter-btn" data-filter="grayscale" style="flex-shrink:0;padding:6px 14px;border-radius:20px;border:1px solid var(--border);background:var(--bg-secondary);color:var(--text-secondary);font-size:12px;cursor:pointer">S&amp;W</button>
+            <button data-action="applyCameraFilter" data-args="[" sepia(80%)"]"="" class="filter-btn" data-filter="sepia" style="flex-shrink:0;padding:6px 14px;border-radius:20px;border:1px solid var(--border);background:var(--bg-secondary);color:var(--text-secondary);font-size:12px;cursor:pointer">Vintage</button>
+            <button data-action="applyCameraFilter" data-args="[" contrast(130%)="" saturate(150%)"]"="" class="filter-btn" data-filter="vivid" style="flex-shrink:0;padding:6px 14px;border-radius:20px;border:1px solid var(--border);background:var(--bg-secondary);color:var(--text-secondary);font-size:12px;cursor:pointer">Lebendig</button>
+            <button data-action="applyCameraFilter" data-args="[" brightness(110%)="" contrast(90%)"]"="" class="filter-btn" data-filter="soft" style="flex-shrink:0;padding:6px 14px;border-radius:20px;border:1px solid var(--border);background:var(--bg-secondary);color:var(--text-secondary);font-size:12px;cursor:pointer">Weich</button>
+            <button data-action="applyCameraFilter" data-args="[" hue-rotate(180deg)="" saturate(120%)"]"="" class="filter-btn" data-filter="cool" style="flex-shrink:0;padding:6px 14px;border-radius:20px;border:1px solid var(--border);background:var(--bg-secondary);color:var(--text-secondary);font-size:12px;cursor:pointer">Cool</button>
+            <button data-action="applyCameraFilter" data-args="[" hue-rotate(30deg)="" saturate(130%)="" brightness(105%)"]"="" class="filter-btn" data-filter="warm" style="flex-shrink:0;padding:6px 14px;border-radius:20px;border:1px solid var(--border);background:var(--bg-secondary);color:var(--text-secondary);font-size:12px;cursor:pointer">Warm</button>
+            <button data-action="applyCameraFilter" data-args="[" invert(90%)="" hue-rotate(180deg)"]"="" class="filter-btn" data-filter="neon" style="flex-shrink:0;padding:6px 14px;border-radius:20px;border:1px solid var(--border);background:var(--bg-secondary);color:var(--text-secondary);font-size:12px;cursor:pointer">Neon</button>
+          </div>
+        </div>
+
+        <!-- Record button -->
+        <div style="display:flex;gap:10px;margin-top:14px;align-items:center;justify-content:center">
+          <button id="record-btn" aria-label="Aufnahme starten/stoppen" data-action="toggleCameraRecording" style="width:68px;height:68px;border-radius:50%;background:linear-gradient(#ef4444,#ef4444);border:4px solid rgba(239,68,68,0.3);color:white;font-size:22px;cursor:pointer;transition:all 0.2s;box-shadow:0 4px 20px rgba(239,68,68,0.4)">
+            <i class="fas fa-circle" id="record-icon"></i>
+          </button>
+        </div>
+        <p id="record-status" style="text-align:center;font-size:12px;color:var(--text-muted);margin-top:8px">Tippe den roten Knopf zum Aufnehmen</p>
+      </div>
+      <div id="video-preview-section" style="display:none">
+        <video id="video-preview" controls=""></video>
+        <div id="short-badge" style="display:none" class="badge badge-short" data-i18n="short_detected">SHORT erkannt</div>
+      </div>
+      <div class="upload-tabs-nav">
+        <button class="utab active" data-utab="basic" data-i18n="tab_basic">Grundlagen</button>
+        <button class="utab" data-utab="advanced"><span data-i18n="tab_details">Details</span> <i class="fas fa-chevron-down"></i></button>
+        <!-- NORYNEX: monetize tab hidden --><button class="utab" data-utab="monetize" data-i18n="tab_monetize_upload" style="display:none">Monetarisierung</button>
+      </div>
+      <div id="utab-basic" class="utab-content">
+        <div class="form-group up-field"><div class="up-label-row"><label for="vid-title" data-i18n="title_label">Titel *</label><span class="up-count" id="vid-title-count">0/100</span></div><input type="text" id="vid-title" maxlength="100" data-i18n-placeholder="title_placeholder" placeholder="Titel des Videos" autocomplete="off"></div>
+        <div class="form-group up-field"><div class="up-label-row"><label for="vid-desc" data-i18n="description_label">Beschreibung</label><span class="up-count" id="vid-desc-count">0/5000</span></div><textarea id="vid-desc" maxlength="5000" data-i18n-placeholder="description_placeholder" placeholder="Beschreibe dein Video..." data-action="previewChapters" data-args="[" $value"]"="" data-on="input" rows="5"></textarea></div>
+        <!-- Hashtags: direkt in Titel/Beschreibung schreiben (wie YouTube/TikTok) -->
+        <div class="up-hashtags" id="hashtag-helper-group">
+          <div class="up-hint"><i class="fas fa-hashtag"></i><span>Schreib <b>#hashtags</b> einfach in Titel oder Beschreibung – sie werden automatisch klickbar und dein Video erscheint auf der Hashtag-Seite.</span></div>
+          <div id="up-hashtag-suggest" class="up-tags up-tags-suggest" hidden=""></div>
+          <div id="up-hashtag-found" class="up-tags" hidden=""></div>
+        </div>
+        <div class="form-group thumbnail-upload">
+          <label data-i18n="thumbnail_label">Thumbnail</label>
+          <div class="thumb-drop" id="thumb-drop">
+            <img alt="" id="thumb-preview-img" style="display:none">
+            <span id="thumb-placeholder"><i class="fas fa-image"></i> <span data-i18n="thumbnail_placeholder">Thumbnail auswählen</span></span>
+            <input type="file" id="thumb-input" accept="image/*" style="display:none">
+          </div>
+        </div>
+        <div class="form-row" style="gap:12px;align-items:flex-start">
+
+          <!-- Visibility dropdown -->
+          <div style="flex:1">
+            <label style="font-size:12px;color:var(--text-muted);font-weight:600;display:block;margin-bottom:6px"><i class="fas fa-eye" style="margin-right:5px;color:var(--purple-light)"></i><span data-i18n="vis_label">Visibility</span></label>
+            <div class="nxd-select-wrap" id="vis-select-wrap">
+              <button type="button" class="nxd-select-btn" data-action="toggleNxdSelect" data-args="[" vis"]"="" id="vis-select-btn">
+                <span id="vis-select-icon"><i class="fas fa-globe"></i></span>
+                <span id="vis-select-label" data-i18n="vis_public">Public</span>
+                <i class="fas fa-chevron-down nxd-select-arrow" id="vis-select-arrow"></i>
+              </button>
+              <div class="nxd-select-menu" id="vis-select-menu" style="display:none">
+                <div class="nxd-select-option" id="vis-opt-public" data-action="setNxdSelect" data-args="[" vis",="" "public"]"="">
+                  <i class="fas fa-globe" style="color:#22c55e"></i>
+                  <div><div style="font-weight:700;font-size:13px" data-i18n="vis_public">Public</div><div style="font-size:11px;color:var(--text-muted)" data-i18n="vis_public_desc">Everyone can see the video</div></div>
+                </div>
+                <div class="nxd-select-option" id="vis-opt-unlisted" data-action="setNxdSelect" data-args="[" vis",="" "unlisted"]"="">
+                  <i class="fas fa-link" style="color:#f59e0b"></i>
+                  <div><div style="font-weight:700;font-size:13px" data-i18n="vis_unlisted">Unlisted</div><div style="font-size:11px;color:var(--text-muted)" data-i18n="vis_unlisted_desc">Only accessible via link</div></div>
+                </div>
+                <div class="nxd-select-option" id="vis-opt-private" data-action="setNxdSelect" data-args="[" vis",="" "private"]"="">
+                  <i class="fas fa-lock" style="color:#ef4444"></i>
+                  <div><div style="font-weight:700;font-size:13px" data-i18n="vis_private">Private</div><div style="font-size:11px;color:var(--text-muted)" data-i18n="vis_private_desc">Only you can see it</div></div>
+                </div>
+              </div>
+            </div>
+            <input type="hidden" id="vid-visibility" value="public">
+          </div>
+
+          <!-- Audience dropdown -->
+          <div style="flex:1">
+            <label style="font-size:12px;color:var(--text-muted);font-weight:600;display:block;margin-bottom:6px"><i class="fas fa-users" style="margin-right:5px;color:var(--purple-light)"></i><span data-i18n="aud_label">Audience</span></label>
+            <div class="nxd-select-wrap" id="aud-select-wrap">
+              <button type="button" class="nxd-select-btn" data-action="toggleNxdSelect" data-args="[" aud"]"="" id="aud-select-btn">
+                <span id="aud-select-icon"><i class="fas fa-users"></i></span>
+                <span id="aud-select-label" data-i18n="aud_general">General</span>
+                <i class="fas fa-chevron-down nxd-select-arrow" id="aud-select-arrow"></i>
+              </button>
+              <div class="nxd-select-menu" id="aud-select-menu" style="display:none">
+                <div class="nxd-select-option" id="aud-opt-general" data-action="setNxdSelect" data-args="[" aud",="" "general"]"="">
+                  <i class="fas fa-users" style="color:#c77dff"></i>
+                  <div><div style="font-weight:700;font-size:13px" data-i18n="aud_general">General</div><div style="font-size:11px;color:var(--text-muted)" data-i18n="aud_general_desc">For all age groups</div></div>
+                </div>
+                <div class="nxd-select-option" id="aud-opt-kids" data-action="setNxdSelect" data-args="[" aud",="" "kids"]"="">
+                  <i class="fas fa-child" style="color:#22c55e"></i>
+                  <div><div style="font-weight:700;font-size:13px" data-i18n="aud_kids">For kids</div><div style="font-size:11px;color:var(--text-muted)" data-i18n="aud_kids_desc">Kid-friendly content</div></div>
+                </div>
+              </div>
+            </div>
+            <input type="hidden" id="vid-kids" value="false">
+            <input type="hidden" id="vid-private" value="false">
+          </div>
+
+        </div>
+      </div>
+      <div id="utab-advanced" class="utab-content" style="display:none">
+        <div class="form-group"><label data-i18n="playlist_label">Playlist</label><input type="text" id="vid-playlist" data-i18n-placeholder="playlist_placeholder" placeholder="Playlist-Name (optional)"></div>
+        <div class="form-group">
+          <label data-i18n="category_label">Kategorie</label>
+          <select id="vid-category">
+            <option value="General" data-i18n="cat_general">Allgemein</option>
+            <option value="Gaming">Gaming</option>
+            <option value="Music" data-i18n="nav_music">Musik</option>
+            <option value="Sports" data-i18n="nav_sports">Sport</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Education" data-i18n="cat_education">Bildung</option>
+            <option value="News">News</option>
+            <option value="Tech" data-i18n="cat_tech">Technologie</option>
+            <option value="Vlog">Vlog</option>
+          </select>
+        </div>
+        <div id="chapter-helper" style="margin-top:-8px;margin-bottom:8px">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
+            <span style="font-size:12px;color:var(--text-muted)"><i class="fas fa-list" style="color:var(--purple-light)"></i> <span data-i18n="chapter_preview_label">Chapter Preview</span></span>
+            <button type="button" data-action="addChapterLine" style="font-size:11px;color:var(--purple-light);background:rgba(168,59,255,0.1);border:1px solid rgba(168,59,255,0.3);border-radius:6px;padding:3px 8px;cursor:pointer"><i class="fas fa-plus"></i> <span data-i18n="chapter_add_btn">Add Chapter</span></button>
+          </div>
+          <div id="chapter-preview-list" style="display:none;background:var(--bg-secondary);border-radius:8px;padding:8px;max-height:140px;overflow-y:auto"></div>
+          <p style="font-size:11px;color:var(--text-muted);margin-top:4px" data-i18n-html="chapter_tip">Tip: Write <code style="background:rgba(255,255,255,0.07);padding:1px 5px;border-radius:4px">0:00 Intro</code> in the description for chapters</p>
+        </div>
+        <div class="form-group"><label data-i18n="tags_label">Tags (kommagetrennt)</label><input type="text" id="vid-tags" data-i18n-placeholder="tags_placeholder" placeholder="tag1, tag2, tag3"></div>
+        <div class="form-group"><label data-i18n="paid_partnership">Bezahlte Werbung</label><select id="vid-sponsored"><option value="" data-i18n="none_option">Keine</option><option value="sponsored" data-i18n="sponsored_option">Gesponsert</option><option value="collab" data-i18n="collab_option">Kollaboration</option></select></div>
+        <!-- Geplante Veröffentlichung -->
+        <div class="form-group" id="schedule-group">
+          <label style="display:flex;align-items:center;gap:8px;cursor:pointer">
+            <input type="checkbox" id="vid-schedule-toggle" data-action="toggleScheduleField" data-on="change">
+            <i class="fas fa-calendar-alt" style="color:var(--purple-light)"></i>
+            <span style="font-weight:600" data-i18n="sched_label">Scheduled release</span>
+          </label>
+          <div id="schedule-datetime-wrap" style="display:none;margin-top:10px;background:var(--bg-secondary);border:1px solid var(--border);border-radius:10px;padding:12px">
+            <p style="font-size:12px;color:var(--text-muted);margin:0 0 8px">Video wird automatisch zum gewählten Zeitpunkt veröffentlicht.</p>
+            <input type="datetime-local" id="vid-scheduled-at" style="width:100%;padding:9px 12px;background:var(--bg-main);border:1px solid var(--border);border-radius:8px;color:var(--text-primary);font-size:14px;box-sizing:border-box">
+          </div>
+        </div>
+      </div>
+      <div id="utab-monetize" class="utab-content" style="display:none">
+        <label class="toggle-label"><input type="checkbox" id="vid-paid" data-action="togglePaidPrice" data-on="change"> <span data-i18n="paid_video_toggle">Video kostenpflichtig machen</span></label>
+        <div id="paid-price-group" style="display:none" class="form-group"><label data-i18n="price_field_label">Preis (€)</label><input type="number" id="vid-price" placeholder="4.99" min="0.99" step="0.01"></div>
+        <p class="note" data-i18n="upload_ad_note">Werbung wird automatisch bei kostenlosen Videos eingeblendet.</p>
+      </div>
+      <div id="upload-progress" style="display:none">
+        <!-- Upload Phase -->
+        <div id="upload-phase-block">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+            <span style="font-size:13px;font-weight:600;color:var(--text-primary)" id="upload-status-text">Wird hochgeladen...</span>
+            <span style="font-size:13px;font-weight:700;color:var(--purple-main)" id="upload-pct-label">0%</span>
+          </div>
+          <div class="progress-bar" style="height:8px;border-radius:99px;background:var(--bg-secondary);overflow:hidden">
+            <div class="progress-fill" id="upload-progress-fill" style="height:100%;width:0%;background:linear-gradient(var(--accent),var(--accent));border-radius:99px;transition:width 0.2s"></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;margin-top:5px">
+            <span style="font-size:11px;color:var(--text-muted)" id="upload-speed-label"></span>
+            <span style="font-size:11px;color:var(--text-muted)" id="upload-eta-label"></span>
+          </div>
+        </div>
+        <!-- Transcode Phase -->
+        <div id="transcode-phase-block" style="display:none;margin-top:14px;padding:12px;background:var(--bg-secondary);border-radius:10px;border:1px solid var(--border)">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+            <span style="font-size:16px;color:var(--purple-light)"><i class="fas fa-gear" style="animation:fa-spin 2.4s linear infinite"></i></span>
+            <span style="font-size:13px;font-weight:600;color:var(--text-primary)" id="transcode-status-label">Video wird verarbeitet...</span>
+          </div>
+          <div id="transcode-renditions" style="display:flex;flex-direction:column;gap:6px"></div>
+          <p style="margin:8px 0 0;font-size:11px;color:var(--text-muted)">Läuft im Hintergrund – du kannst die Seite schließen.</p>
+        </div>
+      </div>
+      <button class="btn-primary full-width" id="submit-video-btn" data-action="submitVideo">
+        <i class="fas fa-upload"></i> <span id="submit-video-label" data-i18n="btn_upload_video">Video hochladen</span>
+      </button>
+    </div>
+    <div id="post-upload-form" style="display:none">
+      <div class="form-group"><textarea id="post-text" data-i18n-placeholder="post_placeholder" placeholder="Was möchtest du teilen?" rows="4"></textarea></div>
+      <!-- Post type tabs -->
+      <div style="display:flex;gap:6px;margin-bottom:14px">
+        <button type="button" id="post-tab-media" data-action="setPostTab" data-args="[" media"]"="" style="flex:1;padding:8px;border-radius:8px;background:var(--purple-subtle);border:1px solid var(--purple-main);color:var(--purple-light);font-size:13px;font-weight:700;cursor:pointer"><i class="fas fa-images"></i> Bilder</button>
+        <button type="button" id="post-tab-poll" data-action="setPostTab" data-args="[" poll"]"="" style="flex:1;padding:8px;border-radius:8px;background:var(--bg-secondary);border:1px solid var(--border);color:var(--text-muted);font-size:13px;font-weight:600;cursor:pointer"><i class="fas fa-poll"></i> Umfrage</button>
+      </div>
+
+      <!-- Media section -->
+      <div id="post-media-section">
+        <div class="drop-zone" id="post-image-drop">
+          <i class="fas fa-images"></i><p data-i18n="add_images">Bilder hinzufügen</p>
+          <input type="file" id="post-images-input" accept="image/*" multiple="" style="display:none">
+        </div>
+        <div id="post-images-preview" class="images-preview-grid"></div>
+      </div>
+
+      <!-- Poll builder -->
+      <div id="post-poll-section" style="display:none">
+        <div class="form-group" style="margin-bottom:10px">
+          <label style="font-size:12px;color:var(--text-muted)">Frage</label>
+          <input type="text" id="poll-question" placeholder="Was denkst du?" maxlength="200" style="font-size:14px">
+        </div>
+        <div id="poll-options-list" style="display:flex;flex-direction:column;gap:8px;margin-bottom:10px">
+          <div class="poll-option-row"><input type="text" placeholder="Option 1" maxlength="100" class="poll-opt-input" style="width:100%;padding:8px 12px;background:var(--bg-secondary);border:1px solid var(--border);border-radius:8px;color:var(--text-primary);font-size:13px"></div>
+          <div class="poll-option-row"><input type="text" placeholder="Option 2" maxlength="100" class="poll-opt-input" style="width:100%;padding:8px 12px;background:var(--bg-secondary);border:1px solid var(--border);border-radius:8px;color:var(--text-primary);font-size:13px"></div>
+        </div>
+        <button type="button" data-action="addPollOption" style="font-size:12px;color:var(--purple-light);background:rgba(168,59,255,0.1);border:1px solid rgba(168,59,255,0.2);border-radius:8px;padding:5px 12px;cursor:pointer;margin-bottom:10px"><i class="fas fa-plus"></i> Option hinzufügen</button>
+        <div class="form-group">
+          <label style="font-size:12px;color:var(--text-muted)">Läuft ab</label>
+          <select id="poll-duration" style="padding:8px;background:var(--bg-secondary);border:1px solid var(--border);border-radius:8px;color:var(--text-primary);font-size:13px">
+            <option value="1">1 Tag</option>
+            <option value="3" selected="">3 Tage</option>
+            <option value="7">7 Tage</option>
+            <option value="0">Kein Ablauf</option>
+          </select>
+        </div>
+      </div>
+
+      <button class="btn-primary full-width" data-action="submitPost"><i class="fas fa-paper-plane"></i> <span data-i18n="btn_publish_post">Beitrag veröffentlichen</span></button>
+    </div>
+  </div>
+</div>
+<div id="notifications-panel" class="side-panel" style="display:none">
+  <div class="panel-header"><h3 data-i18n="notifications_title">Benachrichtigungen</h3><button data-action="closeNotificationsPanel" aria-label="Schließen"><i class="fas fa-times"></i></button></div>
+  <div style="display:flex;border-bottom:1px solid var(--border);flex-shrink:0">
+    <button id="notif-tab-btn-notifs" data-action="switchNotifTab" data-args="[" notifs"]"="" style="flex:1;padding:10px;border:none;background:var(--purple-subtle);color:var(--purple-light);font-size:13px;font-weight:700;cursor:pointer;border-bottom:2px solid var(--purple-main)" data-i18n-tab="notifs"><i class="fas fa-bell" style="margin-right:6px"></i><span data-i18n="notifications_title">Benachrichtigungen</span></button>
+    <button id="notif-tab-btn-messages" data-action="switchNotifTab" data-args="[" messages"]"="" style="flex:1;padding:10px;border:none;background:transparent;color:var(--text-muted);font-size:13px;font-weight:600;cursor:pointer;border-bottom:2px solid transparent;position:relative"><i class="fas fa-envelope" style="margin-right:6px"></i><span data-i18n="nav_messages">Nachrichten</span><span id="msg-badge" style="display:none;position:absolute;top:6px;right:10px;background:#ef4444;color:white;font-size:10px;font-weight:700;padding:1px 5px;border-radius:50px">0</span></button>
+  </div>
+  <div id="notifications-list" style="overflow-y:auto;flex:1"></div>
+</div>
+<div id="support-chat-panel" class="side-panel" style="display:none">
+  <div class="panel-header"><h3><i class="fas fa-headset" style="margin-right:8px;color:var(--purple-light)"></i><span data-i18n="support_chat_title">Support-Chat</span></h3><button data-action="closeSupportChatWidget" aria-label="Schließen"><i class="fas fa-times"></i></button></div>
+  <div id="support-chat-messages" style="overflow-y:auto;flex:1;padding:16px;display:flex;flex-direction:column;gap:10px"></div>
+  <label style="display:flex;align-items:center;gap:7px;padding:0 14px 8px;font-size:12px;color:var(--text-muted);cursor:pointer;flex-shrink:0">
+    <input type="checkbox" id="support-ask-nexa" checked="" style="accent-color:#c77dff;cursor:pointer">
+    <img src="images/nexa-logo.svg" alt="Nexa" style="width:14px;height:14px"> <span data-i18n="support_ask_nexa">Nexa fragen (sofortige KI-Antwort)</span>
+  </label>
+  <div style="padding:12px;border-top:1px solid var(--border);display:flex;gap:8px;flex-shrink:0">
+    <input type="text" id="support-chat-input" data-i18n-placeholder="support_chat_placeholder" placeholder="Nachricht an den Support…" style="flex:1;background:var(--bg-secondary);border:1px solid var(--border);border-radius:20px;padding:10px 16px;color:var(--text-primary);font-size:13px;outline:none">
+    <button data-action="sendSupportChatMessage" style="width:38px;height:38px;border-radius:50%;background:var(--purple-main);border:none;color:white;cursor:pointer;flex-shrink:0" aria-label="Senden"><i class="fas fa-paper-plane" style="font-size:13px"></i></button>
+  </div>
+</div>
+
+<div id="toast-container"></div>
+<!-- Cookie Consent Banner -->
+<div id="cookie-banner" role="dialog" aria-label="Cookie-Einstellungen">
+  <div class="cookie-text">
+    <i class="fas fa-cookie-bite" style="color:#f5c27a;margin-right:4px"></i> <strong>Norynex verwendet Cookies</strong>, um das Nutzererlebnis zu verbessern.
+    Notwendige Cookies sind immer aktiv. Alle anderen Cookies sind optional.
+    <a href="/datenschutz" target="_blank">Datenschutz</a> · <a href="/agb" target="_blank">AGB</a>
+  </div>
+  <div class="cookie-btns">
+    <button class="cookie-btn-reject" data-action="rejectAllCookies">Ablehnen</button>
+    <button class="cookie-btn-settings" data-action="openCookieSettings">Einstellungen</button>
+    <button class="cookie-btn-accept" data-action="acceptAllCookies">Alle akzeptieren</button>
+  </div>
+</div>
+<!-- Cookie Settings Modal -->
+<div id="cookie-modal" style="display:none" role="dialog">
+  <div class="cookie-modal-box">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
+      <h3 style="margin:0;color:#fff;font-size:18px"><i class="fas fa-cookie-bite" style="color:#f5c27a;margin-right:6px"></i>Cookie-Einstellungen</h3>
+      <button data-action="nxHideEl" data-args="[" cookie-modal"]"="" style="background:none;border:none;color:rgba(255,255,255,0.6);font-size:20px;cursor:pointer">×</button>
+    </div>
+    <p style="font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:20px;line-height:1.6">Wähle, welche Cookies du erlauben möchtest. Notwendige Cookies sind immer aktiv.</p>
+    <div class="cookie-toggle-row">
+      <div><div class="cookie-toggle-label">Notwendige Cookies</div><div class="cookie-toggle-desc">Für grundlegende Funktionen der Website erforderlich</div></div>
+      <label class="cookie-switch"><input type="checkbox" checked="" disabled=""><span class="cookie-slider"></span></label>
+    </div>
+    <div class="cookie-toggle-row">
+      <div><div class="cookie-toggle-label">Analyse-Cookies</div><div class="cookie-toggle-desc">Helfen uns, die Nutzung der Website zu verstehen (anonym)</div></div>
+      <label class="cookie-switch"><input type="checkbox" id="cookie-analytics"><span class="cookie-slider"></span></label>
+    </div>
+    <div class="cookie-toggle-row">
+      <div><div class="cookie-toggle-label">Marketing-Cookies</div><div class="cookie-toggle-desc">Werden für personalisierte Werbung verwendet</div></div>
+      <label class="cookie-switch"><input type="checkbox" id="cookie-marketing"><span class="cookie-slider"></span></label>
+    </div>
+    <div class="cookie-toggle-row">
+      <div><div class="cookie-toggle-label">Funktionale Cookies</div><div class="cookie-toggle-desc">Ermöglicht Google Login</div></div>
+      <label class="cookie-switch"><input type="checkbox" id="cookie-functional"><span class="cookie-slider"></span></label>
+    </div>
+    <div style="display:flex;gap:10px;margin-top:22px;flex-wrap:wrap">
+      <button data-action="rejectAllCookies" style="flex:1;min-width:120px;padding:12px;background:#fff;border:1px solid rgba(255,255,255,0.25);border-radius:10px;color:#15131f;font-size:14px;font-weight:700;cursor:pointer">Ablehnen</button>
+      <button data-action="acceptAllCookies" style="flex:1;min-width:120px;padding:12px;background:transparent;border:1.5px solid rgba(168,59,255,0.6);border-radius:10px;color:#fff;font-size:14px;font-weight:700;cursor:pointer">Alle akzeptieren</button>
+      <button data-action="saveCookieSettings" style="flex:1;min-width:140px;padding:12px;background:linear-gradient(var(--accent),var(--accent));border:none;border-radius:10px;color:white;font-size:14px;font-weight:700;cursor:pointer">Auswahl speichern</button>
+    </div>
+  </div>
+</div>
+<script src="js/index-2.js"></script>
+<script src="js/socket.io.js"></script>
+<script src="js/hls.min.js"></script>
+<!-- Google Cast Sender SDK (v1.79): wird erst beim ersten Klick auf das Cast-Symbol von Google
+     geladen (public/js/cast.js → nxLoadCastSdk). Vorher fand beim Seitenaufruf keine Verbindung zu
+     gstatic.com statt. Der Callback muss trotzdem vorab definiert sein. -->
+<script src="js/index-3.js"></script>
+
+<script src="js/i18n.js"></script>
+<script src="js/app.js"></script>
+<!-- admin-pro.js wird seit v1.80 nur für Admins nachgeladen (client/app/030-auth.js → nxEnsureAdminPro) -->
+<script src="js/nexa-pro.js"></script>
+<script src="js/pages-pro.js"></script>
+<script src="js/tasks-pro.js"></script>
+<script src="js/shop-pro.js"></script>
+<script src="js/player-pro.js"></script>
+<script src="js/konto-familie.js"></script>
+<script src="js/werksreset.js"></script>
+<script src="js/ergaenzungen.js"></script>
+<script src="js/badges.js"></script>
+<script src="js/gifts.js"></script>
+<script src="js/live.js"></script>
+<script src="js/cast.js"></script>
+<script src="js/beta-bugs.js"></script>
+  <!-- Mobile Bottom Navigation -->
+  <nav id="mobile-bottom-nav" style="display:none">
+    <a href="/" data-action="navigateTo" data-args="[" home"]"="" data-nav="home" class="active">
+      <i class="fas fa-home"></i><span>Home</span>
+    </a>
+    <a href="/shorts" data-action="navigateTo" data-args="[" shorts"]"="" data-nav="shorts">
+      <i class="fas fa-play"></i><span>Shorts</span>
+    </a>
+    <a href="#" id="mobile-upload-btn" data-action="openModal" data-args="[" upload-modal"]"="">
+      <div style="width:42px;height:42px;background:linear-gradient(var(--accent),var(--accent));border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:2px;box-shadow:0 2px 12px rgba(0,0,0,0.25)">
+        <i class="fas fa-plus" style="font-size:18px;color:white"></i>
+      </div>
+      <span style="font-size:9px">Upload</span>
+    </a>
+    <a href="/subscriptions" data-action="navigateTo" data-args="[" subscriptions"]"="" data-nav="subscriptions">
+      <i class="fas fa-play-circle"></i><span>Abos</span>
+    </a>
+    <a href="/trending" data-action="navigateTo" data-args="[" trending"]"="" data-nav="trending">
+      <i class="fas fa-fire"></i><span>Trends</span>
+    </a>
+  </nav>
+
+  <!-- PWA Install Banner -->
+<div id="pwa-install-banner" style="display:none;position:fixed;bottom:80px;left:50%;transform:translateX(-50%);z-index:9998;background:var(--bg-card);border:1px solid rgba(168,59,255,0.5);border-radius:16px;padding:14px 18px;box-shadow:0 8px 32px rgba(0,0,0,0.6);align-items:center;gap:14px;max-width:380px;width:92%;animation:slideUp 0.4s ease">
+  <img alt="" src="images/icon-72.png" width="44" height="44" style="background:transparent;flex-shrink:0">
+  <div style="flex:1;min-width:0">
+    <div id="pwa-banner-title" style="font-weight:700;font-size:14px;color:white">Norynex installieren</div>
+    <div id="pwa-banner-sub" style="font-size:12px;color:rgba(255,255,255,0.6);margin-top:2px">Als App auf dem Homescreen speichern</div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:6px;flex-shrink:0">
+    <button id="pwa-install-btn" style="padding:7px 14px;border-radius:8px;border:none;background:linear-gradient(var(--accent),var(--accent));color:white;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap">Installieren</button>
+    <button data-action="nxDismissPwaBanner" style="padding:4px;border:none;background:none;color:rgba(255,255,255,0.4);font-size:11px;cursor:pointer;text-align:center">Nicht jetzt</button>
+  </div>
+</div>
+
+<script src="js/index-4.js"></script>
+
+<style>
+@keyframes slideUp { from { opacity:0; transform:translateX(-50%) translateY(20px); } to { opacity:1; transform:translateX(-50%) translateY(0); } }
+</style>
+
+
+<script src="js/index-5.js"></script>
+
+
+<script src="js/index-6.js"></script>
+
+<!-- Search History Full Modal -->
+<div id="search-history-modal" class="cast-modal-overlay" style="display:none" data-action="closeSearchHistoryModal" data-self="">
+  <div class="cast-modal" style="max-width:420px">
+    <div class="cast-modal-header">
+      <span class="cast-modal-title"><i class="fas fa-history"></i> <span data-i18n="sh_title">Suchverlauf</span></span>
+      <button class="cast-close-btn" data-action="closeSearchHistoryModal" aria-label="Schließen"><i class="fas fa-times"></i></button>
+    </div>
+    <div id="search-history-full-list" style="max-height:400px;overflow-y:auto;padding:8px 0"></div>
+    <div class="cast-modal-footer">
+      <button class="cast-sources-btn" style="color:#ef4444;border-color:#ef4444" data-action="clearAllSearchHistory"><i class="fas fa-trash"></i> <span data-i18n="sh_clear_all">Verlauf löschen</span></button>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Background Upload Mini-Bar -->
+<div id="bg-upload-bar" style="display:none;position:fixed;bottom:70px;right:16px;z-index:9998;background:var(--bg-card,#1e1e2e);border:1px solid var(--border,rgba(255,255,255,0.12));border-radius:14px;box-shadow:0 8px 32px rgba(0,0,0,0.5);padding:12px 16px;min-width:260px;max-width:320px">
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+    <div style="display:flex;align-items:center;gap:8px">
+      <i class="fas fa-cloud-upload-alt" style="color:var(--purple-main,#a83bff);font-size:14px"></i>
+      <span id="bg-upload-title" style="font-size:13px;font-weight:600;color:var(--text-primary);max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Video wird hochgeladen...</span>
+    </div>
+    <button data-action="nxHideEl" data-args="[" bg-upload-bar"]"="" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:16px;padding:0;line-height:1">×</button>
+  </div>
+  <div style="height:5px;background:var(--bg-secondary,#2a2a3e);border-radius:99px;overflow:hidden">
+    <div id="bg-upload-fill" style="height:100%;width:0%;background:linear-gradient(var(--accent),var(--accent));border-radius:99px;transition:width 0.3s"></div>
+  </div>
+  <div style="display:flex;justify-content:space-between;margin-top:6px">
+    <span id="bg-upload-pct" style="font-size:11px;color:var(--text-muted)">0%</span>
+    <span id="bg-upload-status" style="font-size:11px;color:var(--text-muted)">Hochladen...</span>
+  </div>
+  <button data-action="reopenUploadModal" style="margin-top:10px;width:100%;padding:7px;border-radius:8px;border:1px solid var(--border);background:rgba(168,59,255,0.1);color:#c77dff;font-size:12px;font-weight:600;cursor:pointer">
+    <i class="fas fa-expand" style="margin-right:6px"></i>Hochlade-Fenster öffnen
+  </button>
+</div>
+<!-- Floating Upload Status Button (always visible during upload) -->
+<button id="upload-float-btn" data-action="toggleUploadBar" style="display:none;position:fixed;bottom:70px;right:16px;z-index:9997;background:linear-gradient(var(--accent),var(--accent));border:none;border-radius:50px;padding:10px 16px;color:white;font-size:13px;font-weight:600;cursor:pointer;box-shadow:0 4px 20px rgba(0,0,0,0.25);display:none;align-items:center;gap:8px">
+  <i class="fas fa-cloud-upload-alt"></i>
+  <span id="upload-float-pct">0%</span>
+</button>
+<!-- Mobile search overlay -->
+<div id="mobile-search-overlay" style="display:none;position:fixed;inset:0;z-index:9999;background:var(--bg-primary);flex-direction:column;padding:10px 12px">
+  <div style="display:flex;align-items:center;gap:10px">
+    <button data-action="closeMobileSearch" style="background:none;border:none;color:var(--text-primary);font-size:20px;cursor:pointer;padding:4px" aria-label="Zurück"><i class="fas fa-arrow-left"></i></button>
+    <input type="text" id="mobile-search-input" placeholder="Suche bei Norynex..." autocomplete="off" autocorrect="off" spellcheck="false" style="flex:1;height:42px;border-radius:24px;border:1.5px solid var(--purple-main);background:var(--bg-secondary);color:var(--text-primary);padding:0 16px;font-size:15px;outline:none">
+  </div>
+</div>
+
+
+</body></html>
