@@ -37,3 +37,34 @@ document.addEventListener('error', function (e) {
   var t = e.target;
   if (t && t.hasAttribute && t.hasAttribute('data-splash-logo')) { t.style.display = 'none'; var f = document.getElementById('nxd-splash-fallback'); if (f) f.style.display = 'flex'; }
 }, true);
+
+// ── API-Basis + robuste JSON-Antworten (zentral, wirkt auf alle fetch-/.json()-Aufrufe) ──
+// Backend auf anderer Domain? <meta name="nx-api-base" content="https://dein-backend.example"> in index.html setzen
+// oder window.NX_API_BASE vor diesem Skript definieren. Leer = gleiche Domain wie die Seite.
+(function () {
+  var m = document.querySelector('meta[name="nx-api-base"]');
+  var base = String(window.NX_API_BASE || (m && m.content) || '').replace(/\/+$/, '');
+  window.NX_API_BASE = base;
+  if (base && window.fetch) {
+    var of = window.fetch.bind(window);
+    window.fetch = function (input, init) {
+      try {
+        if (typeof input === 'string' && /^\/(api|uploads|socket\.io)\//.test(input)) { input = base + input; if (base !== location.origin) { init = Object.assign({}, init, { credentials: 'include' }); } }
+      } catch (e) {}
+      return of(input, init);
+    };
+  }
+  // Server liefert HTML/Text statt JSON (z.B. "The page could not be found") -> klare Fehlermeldung statt "Unexpected token"
+  var oj = Response.prototype.json;
+  Response.prototype.json = function () {
+    var res = this;
+    return oj.call(res).catch(function (err) {
+      if (err && err.name === 'SyntaxError') {
+        var e = new Error('Server nicht erreichbar (Status ' + res.status + '). Bitte später erneut versuchen.');
+        e.code = 'NX_NOT_JSON';
+        throw e;
+      }
+      throw err;
+    });
+  };
+})();

@@ -632,7 +632,7 @@ function updateBottomNav(page) {
 
 function initSocket() {
   try {
-    socket = io({ auth: { token: localStorage.getItem('nxd_token') || '' } });
+    socket = io(window.NX_API_BASE || undefined, { withCredentials: true, auth: { token: localStorage.getItem('nxd_token') || '' } });
     // Nach jedem (Wieder-)Verbinden erneut mit dem aktuellen Token anmelden
     socket.on('connect', () => { const tk = localStorage.getItem('nxd_token'); if (tk) socket.emit('join_user', tk); });
     if (typeof _registerPollUpdatedListener === 'function') _registerPollUpdatedListener();
