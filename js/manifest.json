@@ -1,0 +1,40 @@
+{
+  "name": "Norynex",
+  "short_name": "Norynex",
+  "description": "Deine Video-Plattform – Videos ansehen, hochladen und teilen.",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0f0a1e",
+  "theme_color": "#7c3aed",
+  "lang": "de",
+  "categories": ["entertainment", "social"],
+  "icons": [
+    { "src": "/assets/icon-72.png",           "sizes": "72x72",   "type": "image/png" },
+    { "src": "/assets/icon-96.png",           "sizes": "96x96",   "type": "image/png" },
+    { "src": "/assets/icon-128.png",          "sizes": "128x128", "type": "image/png" },
+    { "src": "/assets/icon-144.png",          "sizes": "144x144", "type": "image/png" },
+    { "src": "/assets/icon-152.png",          "sizes": "152x152", "type": "image/png" },
+    { "src": "/assets/icon-192.png",          "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/assets/icon-384.png",          "sizes": "384x384", "type": "image/png" },
+    { "src": "/assets/icon-512.png",          "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/assets/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "Video hochladen",
+      "short_name": "Upload",
+      "description": "Neues Video hochladen",
+      "url": "/#upload",
+      "icons": [{ "src": "/assets/icon-96.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Trending",
+      "short_name": "Trending",
+      "url": "/#trending",
+      "icons": [{ "src": "/assets/icon-96.png", "sizes": "96x96" }]
+    }
+  ]
+}
