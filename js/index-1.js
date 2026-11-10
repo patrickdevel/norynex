@@ -43,7 +43,7 @@ document.addEventListener('error', function (e) {
 // oder window.NX_API_BASE vor diesem Skript definieren. Leer = gleiche Domain wie die Seite.
 (function () {
   var m = document.querySelector('meta[name="nx-api-base"]');
-  var base = String(window.NX_API_BASE || (m && m.content) || '').replace(/\/+$/, '');
+  var base = String(window.NX_API_BASE || (m && m.content) || 'https://norynex.com').replace(/\/+$/, '');
   window.NX_API_BASE = base;
   if (base && window.fetch) {
     var of = window.fetch.bind(window);
